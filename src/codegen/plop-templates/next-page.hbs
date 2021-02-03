@@ -1,0 +1,27 @@
+import React from 'react';
+import Head from 'next/head';
+import { useIntl } from 'react-intl';
+import { formatPageTitle } from '../src/utils/formatPageTitle';
+import { {{pascalCase namespace}} } from '../src/pages/{{pascalCase namespace}}';
+
+export default function {{pascalCase namespace}}Page(): JSX.Element {
+  const { formatMessage } = useIntl();
+  // TODO: these might come from data, update accordingly
+  const pageTitle = formatPageTitle(formatMessage({ id: 'add-page-title' }));
+  const pageDescription = formatMessage({ id: 'add-page-description' });
+
+  return (
+    <>
+      <Head>
+        <title>{pageTitle}</title>
+        <meta
+          name="description"
+          content={pageDescription}
+          key="metadescription"
+        />
+      </Head>
+
+      <{{pascalCase namespace}} />
+    </>
+  );
+}
